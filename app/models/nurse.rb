@@ -1,5 +1,5 @@
 class Nurse < ApplicationRecord
-    has_many :appointments
+    has_many :appointments, -> {order(created_at: :desc)}
     has_many :doctors, through: :appointments
     has_many :visitors, through: :appointments
     validates_uniqueness_of :username
